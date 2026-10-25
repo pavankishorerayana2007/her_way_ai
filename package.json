@@ -1,0 +1,28 @@
+{
+  "name": "herway-ai",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently \"npm:dev:server\" \"npm:dev:client\"",
+    "dev:server": "node --watch server/index.js",
+    "dev:client": "vite --configLoader native --host 0.0.0.0",
+    "build": "vite build --configLoader native",
+    "start": "node server/index.js",
+    "check": "node --check server/index.js && node --check server/routes/api.js && node --check public/app.js && vite build --configLoader native"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.57.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.1.0",
+    "helmet": "^8.1.0",
+    "zod": "^4.1.5"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "vite": "^7.1.7"
+  },
+  "engines": { "node": ">=20.19.0" }
+}
